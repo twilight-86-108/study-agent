@@ -1,0 +1,60 @@
+app_name: StudyAgent
+
+version: 0.1.0
+
+debug: false
+
+llm:
+  provider: ollama
+  temperature: 0.7
+  max_tokens: 2048
+  timeout: 30
+  max_retries: 3
+  ollama:
+    base_url: http://localhost:11434
+    model: llama3.1:8b
+    embedding_model: nomic-embed-text
+
+embedding:
+  provider: ollama
+  dimension: 768
+
+vector_db:
+  provider: chroma
+  persist_directory: data/vectors/chroma
+  collection_name: study_agent
+
+database:
+  provider: sqlite
+  path: data/db/study_agent.db
+
+chunking:
+  chunk_size: 1000
+  chunk_overlap: 200
+
+document:
+  max_file_size_mb: 50
+  max_pages: 500
+  supported_formats: 
+    - pdf
+    - md
+    - txt
+
+quiz:
+  default_difficulty: 3
+  default_count: 5
+  default_type: "multiple_choice"
+
+progress:
+  mastery_threshold: 80
+  weak_topic_threshold: 50
+
+logging:
+  level: INFO
+  file: data/logs/study_agent.log
+  json_format: false
+
+cli:
+  rich_output: true
+  show_timestamp: false
+  color_theme: "auto"

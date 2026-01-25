@@ -211,7 +211,7 @@ class RecordNotFoundError(DatabaseError):
         table: str,
         record_id: str,
         *,
-        contect: Optional[ErrorContext] = None,
+        context: Optional[ErrorContext] = None,
     ) -> None:
         from study_agent.core.messages import MSG_RECORD_NOT_FOUND
 
