@@ -88,10 +88,10 @@ class UnsupportedFormatError(DocumentError):
         self.supported_formats = supported_formats
 
 
-class FileToolLargeError(DocumentError):
+class DocumentTooLargeError(DocumentError):
     """ファイルサイズが制限を超えた際に発生"""
 
-    def __ini__(
+    def __init__(
         self,
         file_size_mb: float,
         max_size_mb: float,
@@ -106,7 +106,7 @@ class FileToolLargeError(DocumentError):
         self.max_size_mb = max_size_mb
 
 
-class ParseError(DocumentError):
+class DocumentParseError(DocumentError):
     """ドキュメント解析に失敗すると発生"""
 
     def __init__(
