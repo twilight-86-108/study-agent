@@ -1,12 +1,19 @@
+"""StudyAgent entry point.
+
+アプリケーションのメインエントリーポイント。
+pyproject.tomlのscriptsセクションから参照される。
+
+Example:
+    $ study-agent --help
+    $ python -m study_agent.main
 """
-Study Agent CLIのメインのエントリポイント
-"""
+
+from study_agent.cli import cli_main
 
 
 def main() -> None:
-    """メイン関数"""
-    print("Study Agent - AI学習アシスタント")
-    print("環境構築が完了しました。")
+    """Main entry point."""
+    cli_main()
 
 
 if __name__ == "__main__":
