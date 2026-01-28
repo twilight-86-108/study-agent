@@ -2,6 +2,7 @@
 
 from study_agent.infrastructure.vectordb.base import (
     BaseVectorDB,
+    ChunkData,
     CollectionStats,
     SearchResult,
     VectorDBConfig,
@@ -21,6 +22,7 @@ from study_agent.infrastructure.vectordb.embeddings import (
 
 __all__ = [
     "BaseVectorDB",
+    "ChunkData",
     "CollectionStats",
     "SearchResult",
     "VectorDBConfig",

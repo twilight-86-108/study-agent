@@ -145,9 +145,10 @@ class SearchContext:
         relevance_scores: 関連度スコア
     """
 
-    context_text: str
-    source_chunks: list[dict[str, Any]]
+    context: str
+    source_chunks: list[Chunk]
     relevance_scores: list[float]
+    total_chunks: int = 0
 
 
 # =============================================================================
@@ -187,12 +188,14 @@ class QuizEvaluation:
         explanation: 解説
     """
 
-    attempt: QuizAttempt
     is_correct: bool
     score: int
     feedback: str
+    attempt: QuizAttempt | None = None
     correct_answer: str | None = None
     explanation: str | None = None
+    matched_points: list[str] = field(default_factory=list)
+    missed_points: list[str] = field(default_factory=list)
 
 
 @dataclass

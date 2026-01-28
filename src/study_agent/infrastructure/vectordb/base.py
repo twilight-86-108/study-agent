@@ -8,6 +8,24 @@ from study_agent.domain.models import Chunk
 
 
 @dataclass
+class ChunkData:
+    """
+    VectorDBに追加するチャンクデータ
+
+    Attributes:
+        chunk_id: チャンクID
+        content: テキスト内容
+        embedding: エンベディングベクトル
+        metadata: メタデータ
+    """
+
+    chunk_id: str
+    content: str
+    embedding: list[float]
+    metadata: dict[str, Any]
+
+
+@dataclass
 class SearchResult:
     """
     ベクトル検索結果
